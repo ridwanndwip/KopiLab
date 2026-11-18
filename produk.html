@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Produk | Kopi Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Newsreader:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- Video 25-27: Data Layer awal. Harus SEBELUM snippet GTM. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  pageType: 'produk',
+  user: { status: 'tamu', tier: 'gratis', profil: { kota: 'Depok', minat: 'kopi' } }
+});
+</script>
+<!-- Video 5-6: GANTI GTM-XXXXXXX dengan ID container kamu (snippet bagian head) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+</head>
+<body>
+<!-- Snippet GTM bagian body (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header class="top">
+  <a class="brand" id="logo-link" href="index.html">Kopi Lab</a>
+  <nav id="main-nav" aria-label="Navigasi utama">
+    <a href="index.html">Beranda</a>
+    <a href="produk.html">Produk</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="https://developers.google.com/tag-platform/tag-manager" target="_blank" rel="noopener" class="ext">Dokumentasi GTM</a>
+  </nav>
+</header>
+<main>
+
+<section class="hero"><h1>Produk</h1>
+<p>Halaman ini untuk latihan trigger <b>Page View</b> pada halaman tertentu: Page Path berisi <code>/produk</code> (Video 16).</p></section>
+<section>
+  <div class="grid">
+    <div class="card"><h3>Es Kopi Susu</h3><p>Rp22.000</p>
+      <button class="btn btn-primary add-cart" data-dl-event="tambah_keranjang" data-item="Es Kopi Susu" data-price="22000">Tambah ke keranjang</button></div>
+    <div class="card"><h3>Biji Kopi Gayo 250 g</h3><p>Rp85.000</p>
+      <button class="btn btn-primary add-cart" data-dl-event="tambah_keranjang" data-item="Biji Kopi Gayo 250 g" data-price="85000">Tambah ke keranjang</button></div>
+    <div class="card"><h3>V60 Dripper</h3><p>Rp150.000</p>
+      <button class="btn btn-primary add-cart" data-dl-event="tambah_keranjang" data-item="V60 Dripper" data-price="150000">Tambah ke keranjang</button></div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <p>Situs latihan Google Tag Manager. Tidak ada transaksi nyata.</p>
+  <p><a href="index.html">Beranda</a> · <a href="produk.html">Produk</a> · <a href="kontak.html">Kontak</a> · <a href="mailto:halo@example.com" id="link-email">halo@example.com</a> · <a href="https://github.com" target="_blank" rel="noopener" class="ext">GitHub</a></p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

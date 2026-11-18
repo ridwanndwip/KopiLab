@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beranda | Kopi Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Newsreader:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- Video 25-27: Data Layer awal. Harus SEBELUM snippet GTM. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  pageType: 'beranda',
+  user: { status: 'tamu', tier: 'gratis', profil: { kota: 'Depok', minat: 'kopi' } }
+});
+</script>
+<!-- Video 5-6: GANTI GTM-XXXXXXX dengan ID container kamu (snippet bagian head) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+</head>
+<body>
+<!-- Snippet GTM bagian body (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header class="top">
+  <a class="brand" id="logo-link" href="index.html">Kopi Lab</a>
+  <nav id="main-nav" aria-label="Navigasi utama">
+    <a href="index.html">Beranda</a>
+    <a href="produk.html">Produk</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="https://developers.google.com/tag-platform/tag-manager" target="_blank" rel="noopener" class="ext">Dokumentasi GTM</a>
+  </nav>
+</header>
+<main>
+
+<section class="hero">
+  <h1>Kopi Lab: tempat latihan tag, trigger, dan variabel.</h1>
+  <p>Setiap tombol, link, dan blok di halaman ini punya ID, class, dan atribut yang bisa kamu pakai di GTM. Buka Preview Mode, lalu klik-klik.</p>
+  <div class="row">
+    <button class="btn btn-primary" id="btn-daftar" data-label="hero-daftar">Daftar sekarang</button>
+    <a class="btn btn-ghost" id="btn-lihat-produk" href="produk.html">Lihat produk</a>
+    <button class="btn btn-ghost" id="btn-demo" data-label="hero-demo">Coba demo</button>
+  </div>
+</section>
+
+<section id="sec-klik">
+  <h2>Klik tombol dan link</h2>
+  <p class="hint">Video 18–21 · Trigger All Elements, Just Links, variabel Click ID/Classes/Text/URL.</p>
+  <div class="grid">
+    <div class="card"><h3>Tombol</h3>
+      <div class="row">
+        <button class="btn btn-primary promo-btn" id="btn-beli" data-produk="Es Kopi Susu">Beli sekarang</button>
+        <button class="btn btn-ghost" id="btn-unduh" data-file="menu.pdf">Unduh menu</button>
+        <button class="btn btn-ghost" id="btn-bagikan">Bagikan</button>
+      </div></div>
+    <div class="card"><h3>Link internal</h3>
+      <ul><li><a href="produk.html" id="link-produk">Halaman produk</a></li>
+      <li><a href="kontak.html" id="link-kontak" class="link-kontak">Halaman kontak</a></li>
+      <li><a href="#sec-scroll" id="link-anchor">Lompat ke bagian scroll</a></li></ul></div>
+    <div class="card"><h3>Link eksternal</h3>
+      <ul><li><a href="https://analytics.google.com" target="_blank" rel="noopener" id="link-ga" class="ext">Google Analytics</a></li>
+      <li><a href="https://tagassistant.google.com" target="_blank" rel="noopener" id="link-tagassistant" class="ext">Tag Assistant</a></li>
+      <li><a href="https://www.wikipedia.org" target="_blank" rel="noopener" id="link-wiki" class="ext">Wikipedia</a></li></ul></div>
+  </div>
+</section>
+
+<section id="sec-dl">
+  <h2>Data Layer dan custom event</h2>
+  <p class="hint">Video 25–28 · Data Layer Variable, nested object, trigger Custom Event. Lihat hasil push di panel kanan bawah.</p>
+  <div class="grid">
+    <div class="card"><h3>Push event sederhana</h3>
+      <p>Mengirim <code>event: 'klik_cta'</code> dengan <code>cta_name</code>.</p>
+      <button class="btn btn-primary" id="btn-push-simple">Kirim klik_cta</button></div>
+    <div class="card"><h3>Push event nested</h3>
+      <p>Mengirim <code>ecommerce.items[0].item_name</code> dan <code>price</code>.</p>
+      <button class="btn btn-primary" id="btn-push-nested" data-dl-event="tambah_keranjang" data-item="Es Kopi Susu" data-price="22000">Tambah ke keranjang</button></div>
+    <div class="card"><h3>Data awal halaman</h3>
+      <p>Saat load, halaman mengirim <code>pageType</code> dan <code>user.profil.kota</code>. Ambil dengan Data Layer Variable: <code>user.profil.kota</code>.</p></div>
+  </div>
+</section>
+
+<section id="sec-error">
+  <h2>Error JavaScript</h2>
+  <p class="hint">Video 22 · Trigger JavaScript Error, variabel Error Message, Error URL, Error Line.</p>
+  <button class="btn btn-danger" id="btn-error">Picu error JavaScript</button>
+</section>
+
+<section id="sec-html">
+  <h2>Target Custom HTML</h2>
+  <p class="hint">Video 29 · Tag Custom HTML bisa menulis ke elemen di bawah.</p>
+  <div id="custom-html-target" class="target">Belum ada konten dari tag Custom HTML.</div>
+</section>
+
+<section id="sec-scroll" class="tall">
+  <h2>Scroll tracking</h2>
+  <p class="hint">Video 23 · Trigger Scroll Depth vertikal 25, 50, 75, 90 persen. Teruskan scroll ke bawah.</p>
+  <p class="long">Kopi Lab menyangrai biji dari lima daerah di Indonesia. Bagian ini sengaja panjang supaya halaman cukup tinggi untuk menguji persentase scroll.</p>
+</section>
+
+<section class="tall alt" id="sec-mid"><h2>Bagian tengah halaman</h2><p class="long">Tetap scroll. Persentase 50 dan 75 akan terpicu di sekitar bagian ini.</p></section>
+
+<section id="sec-visibility" class="tall">
+  <h2>Element Visibility</h2>
+  <p class="hint">Video 24 · Trigger Element Visibility. Selector: <code>#promo-banner</code> atau <code>#newsletter-box</code>.</p>
+  <div id="promo-banner" class="promo">Diskon 20% untuk pembelian pertama. Banner ini terpicu saat terlihat di layar.</div>
+  <div id="newsletter-box" class="promo alt2">Berlangganan newsletter Kopi Lab. Blok ini punya ID berbeda.</div>
+</section>
+
+<section id="sec-bawah" class="alt"><h2>Akhir halaman</h2><p>Scroll 90 persen tercapai di sini. Lanjut ke <a href="kontak.html" id="link-bawah-kontak">halaman kontak</a> untuk form generate_lead.</p></section>
+</main>
+<footer class="foot">
+  <p>Situs latihan Google Tag Manager. Tidak ada transaksi nyata.</p>
+  <p><a href="index.html">Beranda</a> · <a href="produk.html">Produk</a> · <a href="kontak.html">Kontak</a> · <a href="mailto:halo@example.com" id="link-email">halo@example.com</a> · <a href="https://github.com" target="_blank" rel="noopener" class="ext">GitHub</a></p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
