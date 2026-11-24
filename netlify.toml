@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA: semua URL diarahkan ke index.html agar refresh/URL langsung tidak 404
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
